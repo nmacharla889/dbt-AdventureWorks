@@ -13,6 +13,6 @@ select
     daystomanufacture as manufacturing_time,
     productline as product_line,
     color as product_color,
-    sellstartdate as product_first_available_timestamp, 
+    cast(sellstartdate as date) as product_first_available_date, 
     weight as product_weight
 from {{ source('production', 'product') }}
