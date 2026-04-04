@@ -1,0 +1,15 @@
+models:
+  - name: stg_sales__salesreason
+    description: ""
+    columns:
+      - name: sales_reason_id
+        data_type: integer
+        description: ""
+
+      - name: purchase_reason
+        data_type: varchar
+        description: ""
+
+      - name: purchase_reason_type
+        data_type: varchar
+        description: ""

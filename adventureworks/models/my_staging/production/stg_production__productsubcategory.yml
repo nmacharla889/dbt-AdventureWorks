@@ -1,0 +1,15 @@
+models:
+  - name: stg_production__productsubcategory
+    description: ""
+    columns:
+      - name: product_subcategory_id
+        data_type: integer
+        description: ""
+
+      - name: product_category_id
+        data_type: integer
+        description: ""
+
+      - name: product_type
+        data_type: varchar
+        description: ""

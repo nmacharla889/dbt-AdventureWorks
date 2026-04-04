@@ -1,0 +1,23 @@
+models:
+  - name: stg_person__stateprovince
+    description: ""
+    columns:
+      - name: state_province_id
+        data_type: integer
+        description: ""
+
+      - name: country_code
+        data_type: varchar
+        description: ""
+
+      - name: state
+        data_type: varchar
+        description: ""
+
+      - name: territory_id
+        data_type: integer
+        description: ""
+
+      - name: state_code
+        data_type: varchar
+        description: ""

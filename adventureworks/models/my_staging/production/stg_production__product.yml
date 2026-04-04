@@ -1,0 +1,67 @@
+models:
+  - name: stg_production__product
+    description: ""
+    columns:
+      - name: product_id
+        data_type: integer
+        description: ""
+
+      - name: product_name
+        data_type: varchar
+        description: ""
+
+      - name: is_product_for_sale
+        data_type: boolean
+        description: ""
+
+      - name: product_quality
+        data_type: varchar
+        description: ""
+
+      - name: is_product_made_inhouse
+        data_type: boolean
+        description: ""
+
+      - name: product_code
+        data_type: varchar
+        description: ""
+
+      - name: product_model_id
+        data_type: integer
+        description: ""
+
+      - name: weight_unit
+        data_type: varchar
+        description: ""
+
+      - name: product_manufacturing_cost
+        data_type: decimal(18,3)
+        description: ""
+
+      - name: product_subcategory_id
+        data_type: integer
+        description: ""
+
+      - name: retail_price
+        data_type: decimal(18,3)
+        description: ""
+
+      - name: manufacturing_time
+        data_type: integer
+        description: ""
+
+      - name: product_line
+        data_type: varchar
+        description: ""
+
+      - name: product_color
+        data_type: varchar
+        description: ""
+
+      - name: product_first_available_date
+        data_type: date
+        description: ""
+
+      - name: product_weight
+        data_type: decimal(18,3)
+        description: ""

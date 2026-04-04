@@ -1,0 +1,79 @@
+models:
+  - name: stg_sales__salesorderheader
+    description: ""
+    columns:
+      - name: sales_order_id
+        data_type: integer
+        description: ""
+
+      - name: ship_method_id
+        data_type: integer
+        description: ""
+
+      - name: billing_address_id
+        data_type: integer
+        description: ""
+
+      - name: tax
+        data_type: decimal(18,3)
+        description: ""
+
+      - name: shipping_address_id
+        data_type: integer
+        description: ""
+
+      - name: is_online_order
+        data_type: boolean
+        description: ""
+
+      - name: territory_id
+        data_type: integer
+        description: ""
+
+      - name: order_status_code
+        data_type: smallint
+        description: ""
+
+      - name: order_date
+        data_type: date
+        description: ""
+
+      - name: bill_amount
+        data_type: decimal(18,3)
+        description: ""
+
+      - name: credit_card_id
+        data_type: integer
+        description: ""
+
+      - name: currency_rate_id
+        data_type: integer
+        description: ""
+
+      - name: shipping_cost
+        data_type: decimal(18,3)
+        description: ""
+
+      - name: order_due_date
+        data_type: date
+        description: ""
+
+      - name: total_bill_amount
+        data_type: decimal(18,3)
+        description: ""
+
+      - name: customer_id
+        data_type: integer
+        description: ""
+
+      - name: sales_person_id
+        data_type: integer
+        description: ""
+
+      - name: order_shipped_date
+        data_type: date
+        description: ""
+
+      - name: customer_account_number
+        data_type: varchar
+        description: ""

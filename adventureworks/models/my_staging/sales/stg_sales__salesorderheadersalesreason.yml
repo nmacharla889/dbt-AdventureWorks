@@ -1,0 +1,11 @@
+models:
+  - name: stg_sales__salesorderheadersalesreason
+    description: ""
+    columns:
+      - name: sales_order_id
+        data_type: integer
+        description: ""
+
+      - name: sales_reason_id
+        data_type: integer
+        description: ""

@@ -1,0 +1,15 @@
+models:
+  - name: stg_sales__store
+    description: ""
+    columns:
+      - name: business_entity_id
+        data_type: integer
+        description: ""
+
+      - name: store_name
+        data_type: varchar
+        description: ""
+
+      - name: sales_person_id
+        data_type: integer
+        description: ""

@@ -1,0 +1,27 @@
+models:
+  - name: stg_person__address
+    description: ""
+    columns:
+      - name: address_id
+        data_type: integer
+        description: ""
+
+      - name: line_1
+        data_type: varchar
+        description: ""
+
+      - name: line_2
+        data_type: varchar
+        description: ""
+
+      - name: city
+        data_type: varchar
+        description: ""
+
+      - name: state_province_id
+        data_type: integer
+        description: ""
+
+      - name: postcode
+        data_type: varchar
+        description: ""

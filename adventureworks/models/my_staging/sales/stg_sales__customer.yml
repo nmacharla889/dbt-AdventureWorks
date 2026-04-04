@@ -1,0 +1,20 @@
+models:
+  - name: stg_sales__customer
+    description: ""
+    columns:
+      - name: customer_id
+        data_type: integer
+        description: ""
+
+      - name: person_id
+        data_type: integer
+        description: ""
+
+      - name: store_id
+        data_type: integer
+        description: ""
+
+      - name: territory_id
+        data_type: integer
+        description: ""
+        

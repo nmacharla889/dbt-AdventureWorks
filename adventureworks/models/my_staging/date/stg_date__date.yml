@@ -1,0 +1,39 @@
+models:
+  - name: stg_date__date
+    description: ""
+    columns:
+      - name: date_id
+        data_type: date
+        description: ""
+
+      - name: previous_day_date
+        data_type: date
+        description: ""
+
+      - name: the_day_after_date
+        data_type: date
+        description: ""
+
+      - name: previous_year_date
+        data_type: date
+        description: ""
+
+      - name: previous_year_week_day_date
+        data_type: date
+        description: ""
+
+      - name: day_of_week
+        data_type: integer
+        description: ""
+
+      - name: day_of_week_name
+        data_type: varchar
+        description: ""
+
+      - name: day_of_month
+        data_type: integer
+        description: ""
+
+      - name: day_of_year
+        data_type: integer
+        description: ""

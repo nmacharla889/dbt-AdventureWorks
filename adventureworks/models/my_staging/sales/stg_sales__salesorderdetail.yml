@@ -1,0 +1,31 @@
+models:
+  - name: stg_sales__salesorderdetail
+    description: ""
+    columns:
+      - name: sales_order_id
+        data_type: integer
+        description: ""
+
+      - name: order_quantity
+        data_type: smallint
+        description: ""
+
+      - name: sales_order_detail_id
+        data_type: integer
+        description: ""
+
+      - name: sale_price
+        data_type: decimal(18,3)
+        description: ""
+
+      - name: promotion_id
+        data_type: integer
+        description: ""
+
+      - name: product_id
+        data_type: integer
+        description: ""
+
+      - name: discount_in_decimal
+        data_type: decimal(18,3)
+        description: ""

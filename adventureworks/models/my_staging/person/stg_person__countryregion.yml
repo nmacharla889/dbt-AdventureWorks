@@ -1,0 +1,11 @@
+models:
+  - name: stg_person__countryregion
+    description: ""
+    columns:
+      - name: country_code
+        data_type: varchar
+        description: ""
+
+      - name: country_name
+        data_type: varchar
+        description: ""

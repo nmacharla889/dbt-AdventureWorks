@@ -1,0 +1,11 @@
+models:
+  - name: stg_sales__creditcard
+    description: ""
+    columns:
+      - name: credit_card_id
+        data_type: integer
+        description: ""
+
+      - name: card_type
+        data_type: varchar
+        description: ""
