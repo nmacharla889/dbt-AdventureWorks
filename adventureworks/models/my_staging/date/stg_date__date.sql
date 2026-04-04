@@ -8,4 +8,4 @@
         day_of_week_name as week_day,
         day_of_month as month,
         day_of_year
-     from date.date
+     from {{ source('date', 'date') }}

@@ -4,4 +4,4 @@ SELECT
     expyear as expiry_year, 
     expmonth as expiry_month, 
     cardnumber as card_number
-FROM sales.creditcard
+FROM {{ source('sales', 'creditcard') }}

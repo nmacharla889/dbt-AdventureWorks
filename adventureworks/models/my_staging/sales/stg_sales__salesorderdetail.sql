@@ -6,4 +6,4 @@ SELECT
    specialofferid as promotion_id, 
    productid as product_id, 
    unitpricediscount as discount_in_decimal
-FROM sales.salesorderdetail
+FROM {{ source('sales', 'salesorderdetail') }}

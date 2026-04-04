@@ -15,4 +15,4 @@ select
     color as product_color,
     sellstartdate as product_first_available_timestamp, 
     weight as product_weight
-from production.product
+from {{ source('production', 'product') }}

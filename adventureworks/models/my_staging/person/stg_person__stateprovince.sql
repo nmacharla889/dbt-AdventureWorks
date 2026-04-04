@@ -4,4 +4,4 @@ select
     name as state,
     territoryid as territory_id, 
     stateprovincecode as state_code
-from person.stateprovince
+from {{ source('person', 'stateprovince') }}

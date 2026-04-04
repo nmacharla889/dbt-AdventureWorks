@@ -3,4 +3,4 @@ SELECT
     personid as person_id, 
     storeid as store_id, 
     territoryid as territory_id
-FROM sales.customer
+FROM {{ source('sales', 'customer') }}

@@ -1,4 +1,4 @@
 select 
     countryregioncode as country_code,
     name as country_name
-from person.countryregion    
+from {{ source('person', 'countryregion') }}   

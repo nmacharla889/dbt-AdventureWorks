@@ -5,4 +5,4 @@ select
     middlename as middle_name,
     lastname as last_name,
     persontype as person_type
-from person.person
+from {{ source('person', 'person') }}

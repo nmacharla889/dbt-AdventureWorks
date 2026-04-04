@@ -18,4 +18,4 @@ SELECT
     salespersonid as sales_person_id, 
     shipdate as order_shipped_timestamp, 
     accountnumber as customer_account_number
-FROM sales.salesorderheader
+FROM {{ source('sales', 'salesorderheader') }}

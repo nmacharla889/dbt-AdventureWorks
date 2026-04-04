@@ -5,4 +5,4 @@ select
     city,
     stateprovinceid as state_province_id,
     postalcode as postcode
-from person.address
+from {{ source('person', 'address') }}

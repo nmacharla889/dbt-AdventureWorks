@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: person
+    database: adventureworks
+    schema: person
+    tables:
+      - name: address
+      - name: countryregion
+      - name: person
+      - name: stateprovince
+
+  - name: production
+    database: adventureworks
+    schema: production
+    tables:
+      - name: product
+      - name: productcategory
+      - name: productsubcategory
+
+  - name: sales
+    database: adventureworks
+    schema: sales
+    tables:
+      - name: customer
+      - name: salesorderheader
+      - name: salesorderdetail
+      - name: creditcard
+      - name: store
+      - name: salesreason
+      - name: salesorderheadersalesreason
+
+  - name: date
+    database: adventureworks
+    schema: date
+    tables:
+      - name: date
