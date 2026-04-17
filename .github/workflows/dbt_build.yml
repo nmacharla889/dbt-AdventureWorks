@@ -1,0 +1,26 @@
+name: dbt build
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # runs daily at midnight UTC
+  workflow_dispatch:       # lets you trigger it manually too
+
+jobs:
+  dbt-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install dbt-duckdb
+
+      - name: Run dbt build
+        working-directory: adventureworks
+        run: dbt build --profiles-dir .
