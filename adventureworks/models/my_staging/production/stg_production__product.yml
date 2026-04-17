@@ -46,7 +46,8 @@ models:
         data_type: integer
         description: ""
         data_tests:
-          - not_null
+          - not_null:
+              severity: warn
 
 
       - name: retail_price

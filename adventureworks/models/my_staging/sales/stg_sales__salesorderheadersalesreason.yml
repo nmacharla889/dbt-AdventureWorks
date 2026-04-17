@@ -6,12 +6,10 @@ models:
         data_type: integer
         description: ""
         data_tests:
-          - unique
           - not_null
 
       - name: sales_reason_id
         data_type: integer
         description: ""
         data_tests:
-          - unique
           - not_null

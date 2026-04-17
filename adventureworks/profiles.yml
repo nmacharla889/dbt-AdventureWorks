@@ -4,7 +4,7 @@ adventureworks:
     duckdb:
      type: duckdb
      path: target/adventureworks.duckdb
-     threads: 12
+     threads: 1
     postgres:  
       type: postgres
       host: localhost
