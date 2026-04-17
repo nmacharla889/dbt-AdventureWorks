@@ -51,7 +51,8 @@ models:
         description: ""
         data_tests:
           - not_null:
-              severity: warn
+              config:
+                severity: warn
 
       - name: currency_rate_id
         data_type: integer

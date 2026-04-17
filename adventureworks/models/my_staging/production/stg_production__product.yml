@@ -47,7 +47,8 @@ models:
         description: ""
         data_tests:
           - not_null:
-              severity: warn
+              config:
+                severity: warn
 
 
       - name: retail_price
