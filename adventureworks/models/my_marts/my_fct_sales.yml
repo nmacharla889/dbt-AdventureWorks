@@ -15,8 +15,9 @@ models:
         data_tests:
           - not_null
           - relationships:
-              to: ref('my_dim_product')
-              field: product_key
+              arguments:
+                to: ref('my_dim_product')
+                field: product_key
 
       - name: customer_key
         data_type: varchar
@@ -24,8 +25,9 @@ models:
         data_tests:
           - not_null
           - relationships:
-              to: ref('my_dim_customer')
-              field: customer_key
+              arguments:
+                to: ref('my_dim_customer')
+                field: customer_key
 
       - name: address_key
         data_type: varchar
@@ -36,8 +38,9 @@ models:
                 severity: warn
                 warn_if: ">0"
           - relationships:
-              to: ref('my_dim_address')
-              field: address_key
+              arguments:
+                to: ref('my_dim_address')
+                field: address_key
               config:
                 severity: warn
 
@@ -47,8 +50,9 @@ models:
         data_tests:
           - not_null
           - relationships:
-              to: ref('my_dim_date')
-              field: date_id
+              arguments:
+                to: ref('my_dim_date')
+                field: date_id
 
       - name: sales_order_id
         data_type: integer

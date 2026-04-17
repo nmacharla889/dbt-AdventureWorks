@@ -1,3 +1,10 @@
+{{
+    config(
+        materialized='incremental',
+        unique_key='sales_key'
+    )
+}}
+
 with salesorderheader as (
     select
         sales_order_id,
@@ -63,3 +70,7 @@ left join my_dim_address
     on salesorderheader.shipping_address_id = my_dim_address.address_id
 left join my_dim_date 
     on salesorderheader.order_date = my_dim_date.date_id
+
+{% if is_incremental() %}
+where my_dim_date.date_id > (select max(order_date_id) from {{ this }})
+{% endif %}
