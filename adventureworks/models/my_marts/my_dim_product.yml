@@ -1,5 +1,5 @@
 models:
-  - name: dim_product
+  - name: my_dim_product
     description: ""
     columns:
       - name: product_key
