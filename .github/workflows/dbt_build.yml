@@ -21,6 +21,10 @@ jobs:
       - name: Install dependencies
         run: pip install dbt-duckdb
 
+      - name: Install dbt packages
+        working-directory: adventureworks
+        run: dbt deps --profiles-dir .
+
       - name: Run dbt build
         working-directory: adventureworks
         run: dbt build --profiles-dir .
