@@ -133,3 +133,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# dbt
+dbt-env/
+duckdb.exe
+*.duckdb
+logs/
+dbt_packages/
+target/
