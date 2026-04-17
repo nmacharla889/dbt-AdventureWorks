@@ -1,50 +1,167 @@
-<img src="docs/img/logo.png" align="right" />
+# dbt Dimensional Modelling — AdventureWorks
 
-# dbt dimensional modelling tutorial
+## Business Problem
 
-Welcome to the tutorial on building a Kimball dimensional model with dbt. 
+AdventureWorks manufactures bicycles and sells them to consumers (B2C) and 
+businesses (B2B) across the world. This project answers the following 
+business question:
 
-This tutorial is also featured on the [dbt developer blog](https://docs.getdbt.com/blog/kimball-dimensional-model).
+> How much revenue did AdventureWorks generate for the year ending 2011, 
+> broken down by product category and subcategory, customer, order status, 
+> and shipping location?
 
-## Table of Contents 
+---
 
-- [Part 0: Understand dimensional modelling concepts](#dimensional-modelling)
-- [Part 1: Set up a mock dbt project and database](docs/part01-setup-dbt-project.md)
-- [Part 2: Identify the business process to model](docs/part02-identify-business-process.md)
-- [Part 3: Identify the fact and dimension tables](docs/part03-identify-fact-dimension.md)
-- [Part 4: Create the dimension tables](docs/part04-create-dimension.md)
-- [Part 5: Create the fact table](docs/part05-create-fact.md)
-- [Part 6: Document the dimensional model relationships](docs/part06-document-model.md)
-- [Part 7: Consume the dimensional model](docs/part07-consume-model.md)
+## Project Overview
 
-## Introduction
+A dimensional model built using the Kimball methodology on the AdventureWorks 
+dataset. The project demonstrates a full modern data stack analytics workflow 
+using dbt Core and DuckDB.
 
-Dimensional modelling is one of many data modelling techniques that are used by data practitioners to organize and present data for analytics. Other data modelling techniques include Data Vault (DV), Third Normal Form (3NF), and One Big Table (OBT) to name a few.
+**Stack**
+- dbt Core 1.11
+- DuckDB (local analytical database)
+- Python 3.12
+- Windows / VS Code
 
-![](docs/img/data-modelling.png)
-*Data modelling techniques on a normalization vs denormalization scale*
+**dbt packages used**
+- `dbt_utils` — surrogate key generation and star macro
+- `codegen` — YML scaffolding
 
-While the relevancy of dimensional modelling [has been debated by data practitioners](https://discourse.getdbt.com/t/is-kimball-dimensional-modeling-still-relevant-in-a-modern-data-warehouse/225/6), it is still one of the most widely adopted data modelling technique for analytics. 
+---
 
-Despite its popularity, resources on how to create dimensional models using dbt remain scarce and lack detail. This tutorial aims to solve this by providing the definitive guide to dimensional modelling with dbt. 
+## Data Model
 
-## Dimensional modelling
+The project follows a star schema design with an additional one big table (OBT) 
+for flat reporting use cases.
 
-Dimensional modelling is a technique introduced by Ralph Kimball in 1996 with his book, [The Data Warehouse Toolkit](https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/books/data-warehouse-dw-toolkit/). 
+### Fact Table
+- `my_fct_sales` — one row per order line item, grain is 
+`sales_order_id + sales_order_detail_id`
 
-The goal of dimensional modelling is to take raw data and transform it into Fact and Dimension tables that represent the business. 
+### Dimensions
+- `my_dim_product` — product enriched with subcategory and category
+- `my_dim_customer` — individual and store customers
+- `my_dim_address` — shipping addresses with state and country
+- `my_dim_date` — calendar date with derived time attributes
 
-![](docs/img/3nf-to-dimensional-model.png)
+### One Big Table
+- `my_obt_sales` — fully denormalised flat table joining all dimensions 
+to the fact table, intended for BI tools that cannot handle multi-table joins
 
-*Raw 3NF data to dimensional model*
+### Lineage
+sources → staging → dims → fct → obt
 
-The benefits of dimensional modelling are: 
+---
 
-- **Simpler data model for analytics**: Users of dimensional models do not need to perform complex joins when consuming a dimensional model for analytics. Performing joins between fact and dimension tables are made simple through the use of surrogate keys.
-- [**Don’t repeat yourself**](https://docs.getdbt.com/terms/dry): Dimensions can be easily re-used with other fact tables to avoid duplication of effort and code logic. Reusable dimensions are referred to as conformed dimensions.
-- **Faster data retrieval**: Analytical queries executed against a dimensional model are significantly faster than a 3NF model since data transformations like joins and aggregations have been already applied.
-- **Close alignment with actual business processes**: Business processes and metrics are modelled and calculated as part of dimensional modelling. This helps ensure that the modelled data is easily usable.
+## Key Design Decisions
 
-Now that we understand the broad concepts and benefits of dimensional modelling, let’s get hands-on and create our first dimensional model using dbt. 
+**Kimball star schema**
+Chosen to learn and demonstrate dimensional modelling fundamentals including 
+surrogate keys, conformed dimensions and fact table grain definition.
 
-[Next &raquo;](docs/part01-setup-dbt-project.md)
+**OBT alongside star schema**
+The star schema supports flexible analytical queries. The OBT is an additional 
+layer for flat reporting tools. In an interview context: these serve different 
+consumers, not competing approaches.
+
+**Surrogate keys**
+Generated using `dbt_utils.generate_surrogate_key` on all dimension and fact 
+tables to decouple the model from source system natural keys.
+
+**Data quality decisions**
+Three confirmed source data issues were investigated and documented with 
+`severity: warn` rather than failing the build:
+
+| Issue                                 | Count    | Decision                                |
+|---------------------------------------|----------|-----------------------------------------|
+| Orders with no shipping address match | 69 rows  | warn — orphaned rows in source          |
+| Products with no subcategory assigned | 209 rows | warn — incomplete source classification |
+| Orders with no credit card on record  | 49 rows  | warn — non-card payment orders          |
+
+---
+
+## How to Run Locally
+
+### Prerequisites
+- Python 3.12
+- Git
+
+### Setup
+
+```bash
+# Clone the repo
+git clone https://github.com/nmacharla889/dbt-AdventureWorks.git
+cd dbt-AdventureWorks/adventureworks
+
+# Create and activate virtual environment
+python -m venv dbt-env
+dbt-env\Scripts\activate
+
+# Install dependencies
+pip install dbt-duckdb
+
+# Install dbt packages
+dbt deps
+```
+
+### Run the project
+
+```bash
+# Load seed data (raw AdventureWorks CSV files)
+dbt seed
+
+# Build all models and run all tests
+dbt build
+
+# Generate and view documentation
+dbt docs generate
+dbt docs serve
+```
+
+### Run tests only
+
+```bash
+# Test sources
+dbt test --select source:*
+
+# Test staging
+dbt test --select my_staging
+
+# Test marts
+dbt test --select my_marts
+```
+
+---
+
+## What I Would Do Differently in Production
+
+- **Database** — replace DuckDB with a cloud warehouse such as Snowflake or 
+Azure Synapse for multi-user access and scalability
+- **Ingestion** — use a tool like Fivetran or Azure Data Factory to load raw 
+data rather than CSV seeds
+- **Orchestration** — schedule dbt runs using Airflow or Azure Data Factory 
+pipelines instead of running manually
+- **CI/CD** — add GitHub Actions to run `dbt build` automatically on every 
+pull request to catch breaking changes before merge
+- **Slowly changing dimensions** — implement SCD Type 2 snapshots on customer 
+and product dims to track historical changes over time
+
+---
+
+## Repository Structure
+adventureworks/
+├── models/
+│   ├── my_staging/        # 15 staging models, one per source table
+│   └── my_marts/          # dims, fct, obt
+├── seeds/                 # raw AdventureWorks CSV data
+├── snapshots/             # (planned)
+├── dbt_project.yml
+└── packages.yml
+
+---
+
+## Author
+
+Nikhil Macharla
+[LinkedIn](https://www.linkedin.com/in/nikhilmacharla/) | [GitHub](https://github.com/nmacharla889/)
