@@ -56,6 +56,7 @@ select
     salesorderdetail.sales_order_id,
     salesorderdetail.sales_order_detail_id,
     salesorderheader.order_status_code,
+    {{ get_order_status_label('salesorderheader.order_status_code') }} as order_status_label,
     salesorderdetail.sale_price,
     salesorderdetail.order_quantity,
     salesorderdetail.revenue
