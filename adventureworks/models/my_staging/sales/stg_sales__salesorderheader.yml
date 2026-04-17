@@ -5,6 +5,10 @@ models:
       - name: sales_order_id
         data_type: integer
         description: ""
+        data_tests:
+          - unique
+          - not_null
+
 
       - name: ship_method_id
         data_type: integer
@@ -45,6 +49,9 @@ models:
       - name: credit_card_id
         data_type: integer
         description: ""
+        data_tests:
+          - not_null
+
 
       - name: currency_rate_id
         data_type: integer
@@ -65,10 +72,14 @@ models:
       - name: customer_id
         data_type: integer
         description: ""
+        data_tests:
+          - not_null
+
 
       - name: sales_person_id
         data_type: integer
         description: ""
+        
 
       - name: order_shipped_date
         data_type: date

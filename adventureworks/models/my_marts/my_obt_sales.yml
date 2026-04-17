@@ -1,0 +1,170 @@
+models:
+  - name: my_obt_sales
+    description: ""
+    columns:
+      - name: sales_key
+        data_type: varchar
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+
+      - name: sales_order_id
+        data_type: integer
+        description: ""
+
+      - name: sales_order_detail_id
+        data_type: integer
+        description: ""
+
+      - name: order_status_code
+        data_type: smallint
+        description: ""
+
+      - name: sale_price
+        data_type: decimal(18,3)
+        description: ""
+
+      - name: order_quantity
+        data_type: smallint
+        description: ""
+
+      - name: revenue
+        data_type: decimal(18,3)
+        description: ""
+
+      - name: product_id
+        data_type: integer
+        description: ""
+
+      - name: product_name
+        data_type: varchar
+        description: ""
+
+      - name: product_code
+        data_type: varchar
+        description: ""
+
+      - name: product_classification
+        data_type: varchar
+        description: ""
+
+      - name: product_type
+        data_type: varchar
+        description: ""
+
+      - name: product_quality
+        data_type: varchar
+        description: ""
+
+      - name: product_line
+        data_type: varchar
+        description: ""
+
+      - name: product_color
+        data_type: varchar
+        description: ""
+
+      - name: product_weight
+        data_type: decimal(18,3)
+        description: ""
+
+      - name: weight_unit
+        data_type: varchar
+        description: ""
+
+      - name: is_product_for_sale
+        data_type: boolean
+        description: ""
+
+      - name: is_product_made_inhouse
+        data_type: boolean
+        description: ""
+
+      - name: manufacturing_time
+        data_type: integer
+        description: ""
+
+      - name: product_manufacturing_cost
+        data_type: decimal(18,3)
+        description: ""
+
+      - name: retail_price
+        data_type: decimal(18,3)
+        description: ""
+
+      - name: product_first_available_date
+        data_type: date
+        description: ""
+
+      - name: customer_id
+        data_type: integer
+        description: ""
+
+      - name: territory_id
+        data_type: integer
+        description: ""
+
+      - name: customer_name
+        data_type: varchar
+        description: ""
+
+      - name: store_name
+        data_type: varchar
+        description: ""
+
+      - name: sales_person_id
+        data_type: integer
+        description: ""
+
+      - name: address_id
+        data_type: integer
+        description: ""
+
+      - name: city
+        data_type: varchar
+        description: ""
+
+      - name: postcode
+        data_type: varchar
+        description: ""
+
+      - name: state_name
+        data_type: varchar
+        description: ""
+
+      - name: country_name
+        data_type: varchar
+        description: ""
+
+      - name: previous_day_date
+        data_type: date
+        description: ""
+
+      - name: the_day_after_date
+        data_type: date
+        description: ""
+
+      - name: previous_year_date
+        data_type: date
+        description: ""
+
+      - name: previous_year_week_day_date
+        data_type: date
+        description: ""
+
+      - name: day_of_week
+        data_type: integer
+        description: ""
+
+      - name: day_of_week_name
+        data_type: varchar
+        description: ""
+
+      - name: day_of_month
+        data_type: integer
+        description: ""
+
+      - name: day_of_year
+        data_type: integer
+        description: ""

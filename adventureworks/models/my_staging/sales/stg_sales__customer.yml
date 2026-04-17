@@ -5,14 +5,24 @@ models:
       - name: customer_id
         data_type: integer
         description: ""
+        data_tests:
+          - unique
+          - not_null
+
 
       - name: person_id
         data_type: integer
         description: ""
+        data_tests:
+          - not_null
+
 
       - name: store_id
         data_type: integer
         description: ""
+        data_tests:
+          - not_null
+
 
       - name: territory_id
         data_type: integer

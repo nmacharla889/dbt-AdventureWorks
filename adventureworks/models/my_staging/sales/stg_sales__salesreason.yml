@@ -5,6 +5,9 @@ models:
       - name: sales_reason_id
         data_type: integer
         description: ""
+        data_tests:
+          - unique
+          - not_null
 
       - name: purchase_reason
         data_type: varchar

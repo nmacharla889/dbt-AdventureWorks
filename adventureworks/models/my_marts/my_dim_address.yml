@@ -1,7 +1,14 @@
 models:
-  - name: stg_person__address
+  - name: my_dim_address
     description: ""
     columns:
+      - name: address_key
+        data_type: varchar
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+
       - name: address_id
         data_type: integer
         description: ""
@@ -9,26 +16,18 @@ models:
           - unique
           - not_null
 
-
-      - name: line_1
-        data_type: varchar
-        description: ""
-
-      - name: line_2
-        data_type: varchar
-        description: ""
-
       - name: city
         data_type: varchar
         description: ""
 
-      - name: state_province_id
-        data_type: integer
-        description: ""
-        data_tests:
-          - not_null
-
-
       - name: postcode
+        data_type: varchar
+        description: ""
+
+      - name: state_name
+        data_type: varchar
+        description: ""
+
+      - name: country_name
         data_type: varchar
         description: ""

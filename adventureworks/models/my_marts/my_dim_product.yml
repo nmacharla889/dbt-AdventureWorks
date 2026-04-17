@@ -1,0 +1,35 @@
+models:
+  - name: dim_product
+    description: ""
+    columns:
+      - name: product_key
+        data_type: varchar
+        description: ""
+
+      - name: productid
+        data_type: integer
+        description: ""
+
+      - name: product_name
+        data_type: varchar
+        description: ""
+
+      - name: productnumber
+        data_type: varchar
+        description: ""
+
+      - name: color
+        data_type: varchar
+        description: ""
+
+      - name: class
+        data_type: varchar
+        description: ""
+
+      - name: product_subcategory_name
+        data_type: varchar
+        description: ""
+
+      - name: product_category_name
+        data_type: varchar
+        description: ""

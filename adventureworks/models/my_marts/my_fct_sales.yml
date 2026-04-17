@@ -1,0 +1,79 @@
+models:
+  - name: my_fct_sales
+    description: ""
+    columns:
+      - name: sales_key
+        data_type: varchar
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+
+      - name: product_key
+        data_type: varchar
+        description: ""
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('my_dim_product')
+              field: product_key
+
+      - name: customer_key
+        data_type: varchar
+        description: ""
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('my_dim_customer')
+              field: customer_key
+
+      - name: address_key
+        data_type: varchar
+        description: ""
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+                warn_if: ">0"
+          - relationships:
+              to: ref('my_dim_address')
+              field: address_key
+              config:
+                severity: warn
+
+      - name: order_date_id
+        data_type: date
+        description: ""
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('my_dim_date')
+              field: date_id
+
+      - name: sales_order_id
+        data_type: integer
+        description: ""
+        data_tests:
+          - not_null
+
+      - name: sales_order_detail_id
+        data_type: integer
+        description: ""
+        data_tests:
+          - not_null
+
+      - name: order_status_code
+        data_type: smallint
+        description: ""
+
+      - name: sale_price
+        data_type: decimal(18,3)
+        description: ""
+
+      - name: order_quantity
+        data_type: smallint
+        description: ""
+
+      - name: revenue
+        data_type: decimal(18,3)
+        description: ""

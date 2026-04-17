@@ -5,6 +5,10 @@ models:
       - name: product_id
         data_type: integer
         description: ""
+        data_tests:
+          - unique
+          - not_null
+
 
       - name: product_name
         data_type: varchar
@@ -41,6 +45,9 @@ models:
       - name: product_subcategory_id
         data_type: integer
         description: ""
+        data_tests:
+          - not_null
+
 
       - name: retail_price
         data_type: decimal(18,3)

@@ -5,10 +5,17 @@ models:
       - name: state_province_id
         data_type: integer
         description: ""
+        data_tests:
+          - unique
+          - not_null
+
 
       - name: country_code
         data_type: varchar
         description: ""
+        data_tests:
+          - not_null
+
 
       - name: state
         data_type: varchar
@@ -17,6 +24,7 @@ models:
       - name: territory_id
         data_type: integer
         description: ""
+        
 
       - name: state_code
         data_type: varchar

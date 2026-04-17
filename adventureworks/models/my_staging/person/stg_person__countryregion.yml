@@ -5,6 +5,10 @@ models:
       - name: country_code
         data_type: varchar
         description: ""
+        data_tests:
+          - unique
+          - not_null
+
 
       - name: country_name
         data_type: varchar

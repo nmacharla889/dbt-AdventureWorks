@@ -6,32 +6,116 @@ sources:
     schema: person
     tables:
       - name: address
+        columns:
+          - name: addressid
+            data_tests:
+              - unique
+              - not_null
       - name: countryregion
+        columns:
+          - name: countryregioncode
+            data_tests:
+              - unique
+              - not_null
       - name: person
+        columns:
+          - name: businessentityid
+            data_tests:
+              - unique
+              - not_null
       - name: stateprovince
+        columns:
+          - name: stateprovinceid
+            data_tests:
+              - unique
+              - not_null
 
   - name: production
     database: adventureworks
     schema: production
     tables:
       - name: product
+        columns:
+          - name: productid
+            data_tests:
+              - unique
+              - not_null
       - name: productcategory
+        columns:
+          - name: productcategoryid
+            data_tests:
+              - unique
+              - not_null
       - name: productsubcategory
+        columns:
+          - name: productsubcategoryid
+            data_tests:
+              - unique
+              - not_null
 
   - name: sales
     database: adventureworks
     schema: sales
     tables:
       - name: customer
+        columns:
+          - name: customerid
+            data_tests:
+              - unique
+              - not_null
+
       - name: salesorderheader
+        columns:
+          - name: salesorderid
+            data_tests:
+              - unique
+              - not_null
+
       - name: salesorderdetail
+        columns:
+          - name: salesorderdetailid
+            data_tests:
+              - unique
+              - not_null
+
       - name: creditcard
+        columns:
+          - name: creditcardid
+            data_tests:
+              - unique
+              - not_null
+
       - name: store
+        columns:
+          - name: businessentityid
+            data_tests:
+              - unique
+              - not_null
+
       - name: salesreason
+        columns:
+          - name: salesreasonid
+            data_tests:
+              - unique
+              - not_null
+
       - name: salesorderheadersalesreason
+        columns:
+          - name: salesorderid
+            data_tests:
+              - not_null
+          - name: salesreasonid
+            data_tests:
+              - not_null
+
 
   - name: date
     database: adventureworks
     schema: date
     tables:
       - name: date
+        columns:
+          - name: date_day
+            data_tests:
+              - unique
+              - not_null

@@ -1,8 +1,5 @@
 select
     businessentityid as business_entity_id,
-    title,
-    firstname as first_name,
-    middlename as middle_name,
-    lastname as last_name,
+    concat(coalesce(title, ''), ' ', coalesce(firstname, ''), ' ', coalesce(middlename, ''), ' ', coalesce(lastname, '')) as customer_name,
     persontype as person_type
 from {{ source('person', 'person') }}

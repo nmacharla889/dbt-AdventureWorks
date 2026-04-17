@@ -5,6 +5,9 @@ models:
       - name: sales_order_id
         data_type: integer
         description: ""
+        data_tests:
+          - not_null
+
 
       - name: order_quantity
         data_type: smallint
@@ -13,6 +16,10 @@ models:
       - name: sales_order_detail_id
         data_type: integer
         description: ""
+        data_tests:
+          - unique
+          - not_null
+
 
       - name: sale_price
         data_type: decimal(18,3)
@@ -25,6 +32,9 @@ models:
       - name: product_id
         data_type: integer
         description: ""
+        data_tests:
+          - not_null
+
 
       - name: discount_in_decimal
         data_type: decimal(18,3)

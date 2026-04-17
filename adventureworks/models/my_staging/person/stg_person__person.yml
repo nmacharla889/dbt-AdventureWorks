@@ -5,20 +5,12 @@ models:
       - name: business_entity_id
         data_type: integer
         description: ""
+        data_tests:
+          - unique
+          - not_null
 
-      - name: title
-        data_type: varchar
-        description: ""
 
-      - name: first_name
-        data_type: varchar
-        description: ""
-
-      - name: middle_name
-        data_type: varchar
-        description: ""
-
-      - name: last_name
+      - name: customer_name
         data_type: varchar
         description: ""
 

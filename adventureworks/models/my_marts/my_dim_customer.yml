@@ -1,0 +1,35 @@
+models:
+  - name: my_dim_customer
+    description: ""
+    columns:
+      - name: customer_key
+        data_type: varchar
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+
+      - name: customer_id
+        data_type: integer
+        description: ""
+        data_tests:
+          - unique
+          - not_null
+
+      - name: territory_id
+        data_type: integer
+        description: ""
+        data_tests:
+          - not_null
+
+      - name: customer_name
+        data_type: varchar
+        description: ""
+
+      - name: store_name
+        data_type: varchar
+        description: ""
+
+      - name: sales_person_id
+        data_type: integer
+        description: ""

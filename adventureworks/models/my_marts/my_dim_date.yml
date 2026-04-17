@@ -1,5 +1,5 @@
 models:
-  - name: stg_date__date
+  - name: my_dim_date
     description: ""
     columns:
       - name: date_id

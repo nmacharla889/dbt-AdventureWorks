@@ -5,6 +5,10 @@ models:
       - name: product_category_id
         data_type: integer
         description: ""
+        data_tests:
+          - unique
+          - not_null
+
 
       - name: product_classification
         data_type: varchar
